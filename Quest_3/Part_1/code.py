@@ -41,7 +41,7 @@ def calculate_mined_max(game_map) -> int:
 game_map = []
 
 input_data = ""
-with open('/home/duser/code/EveryBodyCodes/Quest_3/Part_1/input', 'r') as file:
+with open('/home/duser/EveryBodyCodes/Quest_3/Part_1/input', 'r') as file:
     input_data = file.read()
 
 
@@ -58,19 +58,22 @@ for line in input_data.split('\n'):
 
     game_map.append(map_line)
 
-    # Add a non-mineable border around the game_map
-    width = len(game_map[0])
-    height = len(game_map)
 
-    # Add top and bottom borders
-    game_map.insert(0, [Block(0, False)] * width)
-    game_map.append([Block(0, False)] * width)
 
-    # Add left and right borders
-    for row in game_map:
-        row.insert(0, Block(0, False))
-        row.append(Block(0, False))
-        
+# Add a non-mineable border around the game_map
+width = len(game_map[0])
+height = len(game_map)
+
+# Add top and bottom borders
+game_map.insert(0, [Block(0, False)] * width)
+game_map.append([Block(0, False)] * width)
+
+# Add left and right borders
+for row in game_map:
+    row.insert(0, Block(0, False))
+    row.append(Block(0, False))
+
+     
 result = calculate_mined_max(game_map)
 
 for y in range(len(game_map)):
